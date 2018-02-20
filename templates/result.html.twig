@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Cocktailzone</h1>
+
+    <div class="row">
+        {% for drink in drinks %}
+            <div class="col-md-4 col-sm-6 portfolio-item thumb-post">
+                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1{{ drink.idDrink }}">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            <i class="fa fa-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img class="img-fluid" src="{{ 'http://' ~ drink.strDrinkThumb }}"
+                         alt="{{ drink.strDrink }}">
+                    {{ dump(drink) }}
+                </a>
+                <div class="portfolio-caption">
+                    <h4>{{ drink.strDrink }}</h4>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}

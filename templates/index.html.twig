@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Cocktailzone</h1>
+    <form method="post" action="{{ path ('search') }}">
+        <input type="text" name="search" >
+        <div>
+            <input type="submit" value="Chercher" class="btn btn-primary btn-xl" />
+        </div>
+    </form>
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
