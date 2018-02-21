@@ -1,0 +1,105 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for drink in drinks %}
+        <div class="container recipe-container">
+            <h1 class="text-center"><i class="fa fa-glass" aria-hidden="true"></i> {{ drink.strDrink }}</h1>
+            <div class="row">
+                <div class="col-md-12 portfolio-item thumb-post text-center">
+                <a><img class="img-recipe" src="{{ 'http://' ~ drink.strDrinkThumb }}" alt="{{ drink.strDrink }}"></a>
+                    {#<div class="portfolio-caption">
+                        #}{#{{ dump(drink.strIngredient5) }}#}{#
+                        {% if drink.strIngredient1 is not null and drink.strMeasure1 is not null %}
+                        <p class="ingredient">{{ drink.strIngredient1 }} - {{ drink.strMeasure1 }}</p>
+                        {% endif %}
+
+                        {% if drink.strIngredient2 is not null and drink.strMeasure2 is not null %}
+                        <p class="ingredient">{{ drink.strIngredient2 }} - {{ drink.strMeasure2 }}</p>
+                        {% endif %}
+
+                        {% if drink.strIngredient3 is defined or drink.strMeasure3 is not null %}
+                        <p class="ingredient">{{ drink.strIngredient3 }} - {{ drink.strMeasure3 }}</p>
+                        {% elseif drink.strIngredient3 is null or drink.strIngredient3 is empty or drink.strIngredient3 is not defined or drink.strIngredient3 == "" %}
+                            <p></p>
+                        {% elseif drink.strMeasure3 is null or drink.strMeasure3 is empty or drink.strMeasure3 is not defined %}
+                            <p class="ingredient">{{ drink.strIngredient3 }}</p>
+                        {% endif %}
+
+                        {% if drink.strMeasure4 is not null %}
+                        <p class="ingredient">{{ drink.strIngredient4 }} - {{ drink.strMeasure4 }}</p>
+                        {% elseif drink.strMeasure4 is null or drink.strMeasure4 is empty %}
+                            <p class="ingredient">{{ drink.strIngredient4 }}</p>
+                        {% endif %}
+
+                        {% if drink.strIngredient5 != null and drink.strMeasure5 is not null  %}
+                        <p class="ingredient">{{ drink.strIngredient5 }} - {{ drink.strMeasure5 }}</p>
+                        {% elseif drink.strMeasure5 is null or drink.strMeasure5 is empty or drink.strMeasure5 is not defined or drink.strMeasure5 == "\n" %}
+                            <p class="ingredient">{{ drink.strIngredient5 }}</p>
+                        {% endif %}
+
+                        {% if drink.strIngredient6 != null and drink.strMeasure6 is not null  %}
+                        <p class="ingredient">{{ drink.strIngredient6 }} - {{ drink.strMeasure6 }}</p>
+                        {% elseif drink.strMeasure6 is null %}
+                            <p class="ingredient">{{ drink.strIngredient6 }}</p>
+                        {% endif %}
+
+                        {% if drink.strIngredient7 != null and drink.strMeasure7 is not null  %}
+                        <p class="ingredient">{{ drink.strIngredient7 }} - {{ drink.strMeasure7 }}</p>
+                        {% elseif drink.strMeasure7 is null %}
+                            <p class="ingredient">{{ drink.strIngredient7 }}</p>
+                        {% endif %}
+                    </div>#}
+                    <div class="portfolio-caption">
+                        {#{{ dump(drink.strIngredient5) }}#}
+                        {% if drink.strIngredient1 is not null and drink.strMeasure1 is not null %}
+                            <p class="ingredient">{{ drink.strMeasure1 }} {{ drink.strIngredient1 }}</p>
+                        {% endif %}
+
+                        {% if drink.strIngredient2 is not null and drink.strMeasure2 is not null %}
+                            <p class="ingredient">{{ drink.strMeasure2 }} {{ drink.strIngredient2 }}</p>
+                        {% endif %}
+
+                        {% if drink.strIngredient3 is defined or drink.strMeasure3 is not null %}
+                            <p class="ingredient">{{ drink.strMeasure3 }} {{ drink.strIngredient3 }}</p>
+                        {% elseif drink.strIngredient3 is null or drink.strIngredient3 is empty or drink.strIngredient3 is not defined or drink.strIngredient3 == "" %}
+                            <p></p>
+                        {% elseif drink.strMeasure3 is null or drink.strMeasure3 is empty or drink.strMeasure3 is not defined %}
+                            <p class="ingredient">{{ drink.strIngredient3 }}</p>
+                        {% endif %}
+
+                        {% if drink.strMeasure4 is not null %}
+                            <p class="ingredient">{{ drink.strMeasure4 }} {{ drink.strIngredient4 }}</p>
+                        {% elseif drink.strMeasure4 is null or drink.strMeasure4 is empty %}
+                            <p class="ingredient">{{ drink.strIngredient4 }}</p>
+                        {% endif %}
+
+                        {% if drink.strIngredient5 != null and drink.strMeasure5 is not null  %}
+                            <p class="ingredient">{{ drink.strMeasure5 }} {{ drink.strIngredient5 }}</p>
+                        {% elseif drink.strMeasure5 is null or drink.strMeasure5 is empty or drink.strMeasure5 is not defined or drink.strMeasure5 == "\n" %}
+                            <p class="ingredient">{{ drink.strIngredient5 }}</p>
+                        {% endif %}
+
+                        {% if drink.strIngredient6 != null and drink.strMeasure6 is not null  %}
+                            <p class="ingredient">{{ drink.strMeasure6 }} {{ drink.strIngredient6 }}</p>
+                        {% elseif drink.strMeasure6 is null %}
+                            <p class="ingredient">{{ drink.strIngredient6 }}</p>
+                        {% endif %}
+
+                        {% if drink.strIngredient7 != null and drink.strMeasure7 is not null  %}
+                            <p class="ingredient">{{ drink.strMeasure7 }} {{ drink.strIngredient7 }}</p>
+                        {% elseif drink.strMeasure7 is null %}
+                            <p class="ingredient">{{ drink.strIngredient7 }}</p>
+                        {% endif %}
+                    </div>
+                    <div>
+                        <p class="text-muted instruction">{{ drink.strInstructions }}</p>
+                    </div>
+
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
