@@ -7,15 +7,22 @@
     <div class="row">
         {% for drink in drinks %}
             <div class="col-md-4 col-sm-6 portfolio-item thumb-post">
-                <a>
+                <a class="portfolio-link" {#data-toggle="modal"#} href="{{ path ('recipe',{'id': drink.idDrink }) }}">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            <i class="fa fa-glass fa-3x" aria-hidden="true"><p>Recette</p></i>
+                        </div>
+                    </div>
                     <img class="img-fluid" src="{{ 'http://' ~ drink.strDrinkThumb }}" alt="{{ drink.strDrink }}">
                 </a>
                 <div class="portfolio-caption">
                     <h4>{{ drink.strDrink }}</h4>
                 </div>
-                <div>
-                    <a class="btn btn-primary" href="{{ path ('recipe',{'id': drink.idDrink }) }}">Recette</a>
-                </div>
+                {#<div class="portfolio-hover">
+                    <div class="portfolio-hover-content">
+                        <i class="fa fa-glass" aria-hidden="true"><a class="btn btn-primary" href="{{ path ('recipe',{'id': drink.idDrink }) }}">Recette</a></i>
+                    </div>
+                </div>#}
             </div>
         {% endfor %}
     </div>
@@ -23,3 +30,12 @@
 
 {% block stylesheets %}
 {% endblock %}
+
+{#
+<div class="col-md-4 col-sm-6 portfolio-item thumb-post">
+    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1{{ event.id }}">
+        <div class="portfolio-hover">
+            <div class="portfolio-hover-content">
+                <i class="fa fa-plus fa-3x"></i>
+            </div>
+        </div>#}
