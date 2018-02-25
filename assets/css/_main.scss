@@ -50,7 +50,16 @@ html{
     padding: 5px 14px 5px 14px;
     margin: 0 auto;
     padding-bottom: 20px;
+    h2 {
+        /*font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
+        font-size: 28px;
+        font-family: MONOSPACE;
+        line-height: 1.2;
+        text-align: center;
+        margin-bottom: 7%;
+    }
 }
+
 #footer-initial{
     position: fixed;
     bottom: 0;

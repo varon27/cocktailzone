@@ -2,15 +2,13 @@
 
 {% block body %}
 
-    <h1>Résultat de votre recherche {{ search }}</h1>
-
+    <h2>Résultat de votre recherche "{{ search }}"</h2>
 
     <div class="row">
         {% for drink in drinks %}
             <div class="col-md-4 col-sm-6 portfolio-item thumb-post">
                 <a>
-                    <img class="img-fluid" src="{{ 'http://' ~ drink.strDrinkThumb }}"
-                         alt="{{ drink.strDrink }}">
+                    <img class="img-fluid" src="{{ 'http://' ~ drink.strDrinkThumb }}" alt="{{ drink.strDrink }}">
                 </a>
                 <div class="portfolio-caption">
                     <h4>{{ drink.strDrink }}</h4>
