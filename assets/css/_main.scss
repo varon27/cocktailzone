@@ -24,6 +24,12 @@ body{
     padding: 5px 14px 5px 14px;
     margin: 0 auto;
     padding-bottom: 20px;
+    h1{
+        font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        margin-bottom: 9%;
+        font-weight: bolder;
+        text-transform: uppercase;
+    }
     h2 {
         font-size: 28px;
         font-family: MONOSPACE;
@@ -132,7 +138,7 @@ body{
     -moz-transition: all ease 0.5s;
     transition: all ease 0.5s;
     opacity: 0;
-    background: rgba(140, 54, 254, 0.9)
+    background: rgba(83, 12, 179, 0.9);
 }
 .portfolio-item .portfolio-link .portfolio-hover:hover { opacity: 1; }
 .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content {
