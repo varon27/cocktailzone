@@ -1,16 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1 class="text-center">Besoin d'un verre ?</h1>
-    <div class="row">
-        <div class="col-md-6">
+    <h1>Besoin d'un verre ?</h1>
+    <div class="row row-search">
+        <div class="col-md-12 text-center inspiration">
             <form method="post" action="{{ path ('search_ingredients') }}">
                 <label>Rechercher par ingrédient</label>
                 <input type="text" name="search" >
                 <button type="submit"  class="btn btn-primary"><i class="fa fa-search" aria-hidden="true"></i></button>
             </form>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-12 text-center inspiration">
             <form method="post" action="{{ path ('search_cocktail') }}">
                 <label>Rechercher par nom de cocktail</label>
                 <input type="text" name="search" >
@@ -18,7 +18,7 @@
             </form>
         </div>
     </div>
-    <div class="row">
+    <div class="row row-search">
         <div class="col-md-12 text-center inspiration">
             <form method="post" action="{{ path ('random') }}">
                 <label>Panne d'inspiration ?</label>

@@ -12,7 +12,7 @@ html{
 body{
     background-image: url(https://mw.laparqueterienouvelle.fr/media/catalog/product/cache/10/image/1400x1000/17f82f742ffe127f42dca9de82fb58b1/b/a/bardage-madrier-deco-taille-hache-brut-6502505965000-still-life-laparqueterienouvelle_2800.jpeg);
     background-repeat: no-repeat;
-    background-position: center center;
+    /*background-position: center center;*/
     background-size: cover;
     background-attachment: fixed;
     height: 100%;
@@ -26,9 +26,11 @@ body{
     padding-bottom: 20px;
     h1{
         font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        margin-bottom: 9%;
+        margin-bottom: 6%;
         font-weight: bolder;
         text-transform: uppercase;
+        font-size: 2em;
+        text-align: center;
     }
     h2 {
         font-size: 28px;
@@ -36,6 +38,12 @@ body{
         line-height: 1.2;
         text-align: center;
         margin-bottom: 7%;
+    }
+}
+@media (min-width: 767px) {
+    #body-initial h1{
+        text-align: center;
+        font-size: 2.3em;
     }
 }
 #container-initial{
@@ -89,6 +97,15 @@ body{
     padding:0;
 }
 #mainNav .navbar-brand img {width: 12%;}
+@media (max-width: 767px) {
+    #mainNav .navbar-brand img {
+        width: 24%;
+        margin-left: 37%;
+    }
+    .cocktail_search{
+        display: none;
+    }
+}
 #mainNav .navbar-brand.active, #mainNav .navbar-brand:active, #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {color: $colorYellow; }
 #mainNav .navbar-nav .nav-item .nav-link {
     font-size: 90%;
@@ -112,7 +129,14 @@ body{
     margin-top: 4%;
     padding-top: 2%;
 }
-
+@media (max-width: 767px) {
+    .inspiration{
+        margin-left: 8%;
+    }
+}
+.row-search{
+    width: 100%;
+}
 /************ RESULT                                            result.html.twig **********/
 /************ RECIPE                                            recipe.html.twig **********/
 
