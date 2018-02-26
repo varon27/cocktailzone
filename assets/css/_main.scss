@@ -96,8 +96,11 @@ body{
     color: $colorYellow;
     padding:0;
 }
-#mainNav .navbar-brand img {width: 12%;}
-@media (max-width: 767px) {
+#mainNav .navbar-brand img {
+    width: 17%;
+    margin-left: 41%;
+}
+/*@media (max-width: 767px) {
     #mainNav .navbar-brand img {
         width: 24%;
         margin-left: 37%;
@@ -105,7 +108,7 @@ body{
     .cocktail_search{
         display: none;
     }
-}
+}*/
 #mainNav .navbar-brand.active, #mainNav .navbar-brand:active, #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {color: $colorYellow; }
 #mainNav .navbar-nav .nav-item .nav-link {
     font-size: 90%;
