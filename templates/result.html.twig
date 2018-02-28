@@ -7,13 +7,13 @@
     <div class="row">
         {% for drink in drinks %}
             <div class="col-md-4 col-sm-6 portfolio-item thumb-post">
-                <a class="portfolio-link" {#data-toggle="modal"#} href="{{ path ('recipe',{'id': drink.idDrink }) }}">
+                <a class="portfolio-link" href="{{ path ('recipe',{'id': drink.idDrink }) }}">
                     <div class="portfolio-hover">
                         <div class="portfolio-hover-content">
                             <i class="fa fa-glass fa-3x" aria-hidden="true"></i>
                         </div>
                     </div>
-                    <img class="img-fluid" src="{{ 'http://' ~ drink.strDrinkThumb }}" alt="{{ drink.strDrink }}">
+                    <img class="img-fluid" src="{{ drink.strDrinkThumb }}" alt="{{ drink.strDrink }}">
                 </a>
                 <div class="portfolio-caption">
                     <h4>{{ drink.strDrink }}</h4>

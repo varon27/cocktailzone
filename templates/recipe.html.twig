@@ -6,7 +6,7 @@
             <h2 class="text-center"><i class="fa fa-glass" aria-hidden="true"></i> {{ drink.strDrink }}</h2>
             <div class="row">
                 <div class="col-md-12 portfolio-item thumb-post text-center">
-                <a><img class="img-recipe" src="{{ 'http://' ~ drink.strDrinkThumb }}" alt="{{ drink.strDrink }}"></a>
+                <a><img class="img-recipe" src="{{ drink.strDrinkThumb }}" alt="{{ drink.strDrink }}"></a>
                     <div class="portfolio-caption">
                         {% if drink.strIngredient1 is not null and drink.strMeasure1 is not null %}
                             <p class="ingredient">{{ drink.strMeasure1 }} {{ drink.strIngredient1 }}</p>
