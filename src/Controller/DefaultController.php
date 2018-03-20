@@ -27,21 +27,12 @@ class DefaultController extends Controller
      * @Route("/search", name="search_ingredients")
      *
      */
-    public function searchAction(Request $request)
+    public function searchAction(Request $request, ClientRecipe $displayRecipe)
     {
         if ($request->isMethod('POST')){
-
-            $search = $request->request->get('search');
-            $url = 'http://www.thecocktaildb.com/api/json/v1/1/filter.php?i=' . $search;
-
-            $client = new Client();
-            $res = $client->request('GET', $url);
-            $results = json_decode($res->getBody()->getContents());
-            $results = $results->drinks;
-
             return $this->render('result.html.twig', array(
-                'drinks' => $results,
-                'search' => $search
+                'drinks' => $displayRecipe->getRecipeByIngredient($request),
+                'search' => $request->request->get('search')
             ));
         }
     }
@@ -50,44 +41,26 @@ class DefaultController extends Controller
      * search by cocktail name
      * @Route("/searchcocktail", name="search_cocktail")
      */
-    public function cocktailSearchAction(Request $request)
+    public function cocktailSearchAction(Request $request, ClientRecipe $displayRecipe)
     {
         if ($request->isMethod('POST')){
-
-            $search = $request->request->get('search');
-            $url = 'http://www.thecocktaildb.com/api/json/v1/1/search.php?s=' . $search;
-
-            $client = new Client();
-            $res = $client->request('GET', $url);
-            $results = json_decode($res->getBody()->getContents());
-            /*     dump($results); die();*/
-            $results = $results->drinks;
-
             return $this->render('result.html.twig', array(
-                'drinks' => $results,
-                'search' => $search
+                'drinks' => $displayRecipe->getRecipeByName($request),
+                'search' => $request->request->get('search')
             ));
         }
     }
 
     /**
      * Find and display a recipe.
-     *
      * @Route("/{id}", name="recipe")
      * @Method("GET")
      */
-    public function recipeAction($id)
+    public function recipeAction($id, Request $request, ClientRecipe $displayRecipe)
     {
-            $url = 'http://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' . $id;
-
-            $client = new Client();
-            $res = $client->request('GET', $url);
-            $results = json_decode($res->getBody()->getContents());
-            $results = $results->drinks;
-
-            return $this->render('recipe.html.twig', array(
-                'drinks' => $results
-            ));
+        return $this->render('recipe.html.twig', array(
+            'drinks' => $displayRecipe->getRecipe($id),
+        ));
     }
 
     /**
@@ -98,7 +71,7 @@ class DefaultController extends Controller
     {
         if ($request->isMethod('POST')){
             return $this->render('recipe.html.twig', array(
-                'drinks' => $displayRecipe->getRandomRecipes(),
+                'drinks' => $displayRecipe->getRandomRecipe(),
             ));
         }
     }

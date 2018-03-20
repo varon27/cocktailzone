@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use GuzzleHttp\Client;
+use Symfony\Component\HttpFoundation\Request;
 
 class ClientRecipe
 {
@@ -14,16 +15,37 @@ class ClientRecipe
         $this->client = $client;
     }
 
-    public function getRandomRecipes()
+    public function getRecipe($id)
     {
-        $res = $this->client->request('GET', 'http://www.thecocktaildb.com/api/json/v1/1/random.php');
+        $url = 'http://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' . $id;
+        $res = $this->client->request('GET', $url);
         $data = json_decode($res->getBody()->getContents(), true);
         return $data['drinks'];
     }
 
-    public function getRecipesBySearch()
+    public function getRandomRecipe()
     {
-        $res = $this->client->request('GET', 'http://www.thecocktaildb.com/api/json/v1/1/random.php');
-        return json_decode($res->getBody()->getContents(), true);
+        $url = 'http://www.thecocktaildb.com/api/json/v1/1/random.php';
+        $res = $this->client->request('GET', $url);
+        $data = json_decode($res->getBody()->getContents(), true);
+        return $data['drinks'];
+    }
+
+    public function getRecipeByName(Request $request)
+    {
+        $search = $request->request->get('search');
+        $url = 'http://www.thecocktaildb.com/api/json/v1/1/search.php?s=' . $search;
+        $res = $this->client->request('GET', $url);
+        $data = json_decode($res->getBody()->getContents(), true);
+        return $data['drinks'];
+    }
+
+    public function getRecipeByIngredient(Request $request)
+    {
+        $search = $request->request->get('search');
+        $url = 'http://www.thecocktaildb.com/api/json/v1/1/filter.php?i=' . $search;
+        $res = $this->client->request('GET', $url);
+        $data = json_decode($res->getBody()->getContents(), true);
+        return $data['drinks'];
     }
 }
